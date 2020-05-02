@@ -3,12 +3,19 @@
     <appender name="file" class="ch.qos.logback.core.FileAppender">
         <file>${EXT_DIR}/foo.log</file>
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%class{0}] %-5level %M: %msg%n</pattern>
         </encoder>
     </appender>
 
-    <!-- Write INFO (and higher-level) messages to the log file -->
-    <root level="INFO">
+    <appender name="logcat" class="ch.qos.logback.classic.android.LogcatAppender">
+        <encoder>
+            <pattern>%M: %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Write TRACE (and higher-level) messages to the log file -->
+    <root level="TRACE">
         <appender-ref ref="file" />
+        <appender-ref ref="logcat" />
     </root>
 </configuration>

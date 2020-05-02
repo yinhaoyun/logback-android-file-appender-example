@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class MainActivity extends AppCompatActivity {
-    private final static Logger LOG = LoggerFactory.getLogger(MainActivity.class);
+    private final static Logger LOG = LoggerFactory.getLogger(MainActivity.class.getSimpleName());
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,5 +18,7 @@ public class MainActivity extends AppCompatActivity {
         LOG.debug("Debug Hello World");
         LOG.info("Info Hello World");
         LOG.trace("Trace Hello World");
+        ClassA.foo();
+        ClassB.foo();
     }
 }
