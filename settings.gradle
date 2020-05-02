@@ -1,0 +1,2 @@
+rootProject.name='logback-android-file-appender'
+include ':app'
